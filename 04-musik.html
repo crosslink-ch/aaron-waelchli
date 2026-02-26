@@ -11,11 +11,11 @@
   .page-label { position: fixed; top: 0; left: 0; right: 0; background: #222; color: #fff; text-align: center; padding: 8px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; z-index: 1000; }
   .wireframe { max-width: 1200px; margin: 52px auto 0; background: #fff; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
   .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #e0e0e0; }
-  .nav-logo { width: 180px; height: 28px; background: #333; border-radius: 2px; }
+  .nav-logo { width: 180px; height: 28px; background: #333; border-radius: 2px; display: block; }
   .nav-links { display: flex; gap: 24px; align-items: center; }
   .nav-link { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
   .nav-link.active { color: #333; font-weight: 700; }
-  .nav-cta { background: #333; color: #fff; padding: 10px 24px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: none; }
+  .nav-cta { background: #333; color: #fff; padding: 10px 24px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: none; text-decoration: none; display: inline-block; }
 
   .page-hero { padding: 80px 40px 60px; border-bottom: 1px solid #e8e8e8; }
   .page-hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 12px; }
@@ -66,14 +66,14 @@
 <div class="page-label">Wireframe · Musik</div>
 <div class="wireframe">
   <nav class="nav">
-    <div class="nav-logo"></div>
+    <a href="01-homepage (1).html" class="nav-logo"></a>
     <div class="nav-links">
-      <a class="nav-link" href="#">Konzerte</a>
-      <a class="nav-link active" href="#">Musik</a>
-      <a class="nav-link" href="#">Über Aaron</a>
-      <a class="nav-link" href="#">Shop</a>
-      <a class="nav-link" href="#">Kontakt</a>
-      <button class="nav-cta">Aaron buchen</button>
+      <a class="nav-link" href="03-konzerte (1).html">Konzerte</a>
+      <a class="nav-link active" href="04-musik.html">Musik</a>
+      <a class="nav-link" href="05-ueber-aaron (1).html">Über Aaron</a>
+      <a class="nav-link" href="06-shop (1).html">Shop</a>
+      <a class="nav-link" href="08-kontakt (1).html">Kontakt</a>
+      <a class="nav-cta" href="02-aaron-buchen (2).html">Aaron buchen</a>
     </div>
   </nav>
 
@@ -106,7 +106,7 @@
           <div class="streaming-link"><span class="streaming-dot"></span> YouTube Music</div>
           <div class="streaming-link"><span class="streaming-dot"></span> Bandcamp</div>
         </div>
-        <a class="shop-link" href="#">Im Shop als CD / Download kaufen →</a>
+        <a class="shop-link" href="06-shop (1).html">Im Shop als CD / Download kaufen →</a>
       </div>
     </div>
 
@@ -121,7 +121,7 @@
           <div class="streaming-link"><span class="streaming-dot"></span> Apple Music</div>
           <div class="streaming-link"><span class="streaming-dot"></span> Bandcamp</div>
         </div>
-        <a class="shop-link" href="#">Im Shop kaufen →</a>
+        <a class="shop-link" href="06-shop (1).html">Im Shop kaufen →</a>
       </div>
     </div>
 
