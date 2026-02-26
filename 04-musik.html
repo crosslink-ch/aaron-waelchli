@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe – Musik</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #f5f5f5; color: #333; }
+  .page-label { position: fixed; top: 0; left: 0; right: 0; background: #222; color: #fff; text-align: center; padding: 8px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; z-index: 1000; }
+  .wireframe { max-width: 1200px; margin: 52px auto 0; background: #fff; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #e0e0e0; }
+  .nav-logo { width: 180px; height: 28px; background: #333; border-radius: 2px; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-link { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
+  .nav-link.active { color: #333; font-weight: 700; }
+  .nav-cta { background: #333; color: #fff; padding: 10px 24px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: none; }
+
+  .page-hero { padding: 80px 40px 60px; border-bottom: 1px solid #e8e8e8; }
+  .page-hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 12px; }
+  .page-hero p { font-size: 18px; color: #777; max-width: 640px; line-height: 1.6; }
+
+  .section { padding: 60px 40px; border-bottom: 1px solid #e8e8e8; }
+  .section-label { display: inline-block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; background: #f0f0f0; padding: 4px 12px; border-radius: 2px; }
+  .section-title { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
+
+  /* ALBUM */
+  .album-row { display: flex; gap: 40px; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #f0f0f0; }
+  .album-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .album-cover { width: 280px; height: 280px; background: #e0e0e0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #aaa; }
+  .album-info { flex: 1; }
+  .album-info h3 { font-size: 24px; margin-bottom: 4px; }
+  .album-year { font-size: 14px; color: #999; margin-bottom: 12px; }
+  .album-info p { font-size: 15px; color: #777; line-height: 1.7; margin-bottom: 20px; }
+  .album-badge { display: inline-block; background: #333; color: #fff; padding: 3px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+
+  .tracklist { margin-bottom: 20px; }
+  .track { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .track-num { width: 28px; color: #ccc; font-size: 13px; }
+  .track-name { flex: 1; color: #555; }
+  .track-dur { color: #bbb; font-size: 13px; }
+
+  .streaming-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .streaming-link { display: flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid #e0e0e0; font-size: 13px; color: #666; cursor: pointer; }
+  .streaming-dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; }
+  .shop-link { font-size: 13px; color: #888; text-decoration: underline; margin-top: 12px; display: inline-block; }
+
+  /* VIDEOS */
+  .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .video-card {}
+  .video-thumb { height: 220px; background: #d5d5d5; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .play-icon { width: 56px; height: 56px; border: 2px solid #999; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .play-icon svg { margin-left: 3px; }
+  .video-card h4 { font-size: 16px; margin-bottom: 4px; }
+  .video-card p { font-size: 13px; color: #999; }
+
+  .footer { padding: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #aaa; }
+  .footer-socials { display: flex; gap: 12px; }
+  .footer-social { width: 36px; height: 36px; background: #e8e8e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: #aaa; text-decoration: none; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="page-label">Wireframe · Musik</div>
+<div class="wireframe">
+  <nav class="nav">
+    <div class="nav-logo"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Konzerte</a>
+      <a class="nav-link active" href="#">Musik</a>
+      <a class="nav-link" href="#">Über Aaron</a>
+      <a class="nav-link" href="#">Shop</a>
+      <a class="nav-link" href="#">Kontakt</a>
+      <button class="nav-cta">Aaron buchen</button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>Musik</h1>
+    <p>Alle Alben, Singles und Videos. Mehrsprachig, genreoffen, handgemacht.</p>
+  </div>
+
+  <!-- DISCOGRAPHY -->
+  <section class="section">
+    <div class="section-label">Diskografie</div>
+
+    <div class="album-row">
+      <div class="album-cover">Album Cover</div>
+      <div class="album-info">
+        <div class="album-badge">Neustes Album</div>
+        <h3>Wake Up</h3>
+        <div class="album-year">2025 · 10 Songs</div>
+        <p>Das aktuelle Album – emotional, genreoffen und handgemacht. Aufgenommen mit Martin Hänggi und Jean-Marie Leduc.</p>
+        <div class="tracklist">
+          <div class="track"><span class="track-num">1</span><span class="track-name">Stay On</span><span class="track-dur">4:12</span></div>
+          <div class="track"><span class="track-num">2</span><span class="track-name">Wake Up</span><span class="track-dur">3:45</span></div>
+          <div class="track"><span class="track-num">3</span><span class="track-name">Your Song</span><span class="track-dur">4:01</span></div>
+          <div class="track"><span class="track-num">4</span><span class="track-name">Song Title</span><span class="track-dur">3:28</span></div>
+          <div class="track"><span class="track-num">5</span><span class="track-name">Song Title</span><span class="track-dur">4:33</span></div>
+        </div>
+        <div class="streaming-links">
+          <div class="streaming-link"><span class="streaming-dot"></span> Spotify</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> Apple Music</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> YouTube Music</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> Bandcamp</div>
+        </div>
+        <a class="shop-link" href="#">Im Shop als CD / Download kaufen →</a>
+      </div>
+    </div>
+
+    <div class="album-row">
+      <div class="album-cover">Album Cover</div>
+      <div class="album-info">
+        <h3>this is your song</h3>
+        <div class="album-year">2023 · 8 Songs</div>
+        <p>Platzhalter Beschreibung für das Album.</p>
+        <div class="streaming-links">
+          <div class="streaming-link"><span class="streaming-dot"></span> Spotify</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> Apple Music</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> Bandcamp</div>
+        </div>
+        <a class="shop-link" href="#">Im Shop kaufen →</a>
+      </div>
+    </div>
+
+    <div class="album-row">
+      <div class="album-cover">Album Cover</div>
+      <div class="album-info">
+        <h3>PUR – Session 2</h3>
+        <div class="album-year">2022</div>
+        <p>Platzhalter Beschreibung.</p>
+        <div class="streaming-links">
+          <div class="streaming-link"><span class="streaming-dot"></span> Spotify</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> Bandcamp</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="album-row">
+      <div class="album-cover">Album Cover</div>
+      <div class="album-info">
+        <h3>PUR – Session 1</h3>
+        <div class="album-year">2021</div>
+        <p>Platzhalter Beschreibung.</p>
+        <div class="streaming-links">
+          <div class="streaming-link"><span class="streaming-dot"></span> Spotify</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> Bandcamp</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="album-row">
+      <div class="album-cover">Album Cover</div>
+      <div class="album-info">
+        <h3>MAARON</h3>
+        <div class="album-year">2020</div>
+        <p>Platzhalter Beschreibung.</p>
+        <div class="streaming-links">
+          <div class="streaming-link"><span class="streaming-dot"></span> Spotify</div>
+          <div class="streaming-link"><span class="streaming-dot"></span> Bandcamp</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="section">
+    <div class="section-label">Videos</div>
+    <div class="section-title">Musikvideos & Live</div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-thumb"><div class="play-icon"><svg width="20" height="20" fill="#999" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        <h4>Stay On 2025</h4>
+        <p>"Wake Up" – Album Version</p>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb"><div class="play-icon"><svg width="20" height="20" fill="#999" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        <h4>Your Song</h4>
+        <p>Offizielles Musikvideo</p>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb"><div class="play-icon"><svg width="20" height="20" fill="#999" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        <h4>Live Session</h4>
+        <p>Akustik-Version</p>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb"><div class="play-icon"><svg width="20" height="20" fill="#999" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        <h4>Konzert-Highlight</h4>
+        <p>Live Mitschnitt</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© 2026 Aaron Wälchli</div>
+    <div class="footer-socials"><div class="footer-social">IG</div><div class="footer-social">YT</div><div class="footer-social">FB</div><div class="footer-social">BC</div></div>
+    <div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </footer>
+</div>
+</body>
+</html>

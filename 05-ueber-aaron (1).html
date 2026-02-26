@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe – Über Aaron</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #f5f5f5; color: #333; }
+  .page-label { position: fixed; top: 0; left: 0; right: 0; background: #222; color: #fff; text-align: center; padding: 8px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; z-index: 1000; }
+  .wireframe { max-width: 1200px; margin: 52px auto 0; background: #fff; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #e0e0e0; }
+  .nav-logo { width: 180px; height: 28px; background: #333; border-radius: 2px; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-link { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
+  .nav-link.active { color: #333; font-weight: 700; }
+  .nav-cta { background: #333; color: #fff; padding: 10px 24px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: none; }
+
+  .section { padding: 60px 40px; border-bottom: 1px solid #e8e8e8; }
+  .section-label { display: inline-block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; background: #f0f0f0; padding: 4px 12px; border-radius: 2px; }
+  .section-title { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
+
+  /* BIO HERO */
+  .bio-hero {
+    display: flex; gap: 60px; padding: 80px 40px 0;
+  }
+  .bio-portrait {
+    width: 420px; min-height: 560px; background: #ddd; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: #aaa;
+  }
+  .bio-content { flex: 1; padding-top: 12px; }
+  .bio-content h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; line-height: 1.1; }
+  .bio-content p { font-size: 16px; color: #555; line-height: 1.85; margin-bottom: 20px; }
+  .bio-highlight {
+    font-size: 20px; color: #444; line-height: 1.55; font-style: italic;
+    margin: 28px 0; padding-left: 20px; border-left: 3px solid #ccc;
+  }
+
+  /* STATS */
+  .stats-row { display: flex; gap: 0; }
+  .stat { flex: 1; text-align: center; padding: 32px 20px; border-right: 1px solid #eee; }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 40px; font-weight: 700; color: #333; }
+  .stat-label { font-size: 13px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* STORY BLOCKS – alternating image/text */
+  .story-block {
+    display: flex; gap: 60px; padding: 60px 40px;
+    border-bottom: 1px solid #e8e8e8; align-items: center;
+  }
+  .story-block.reverse { flex-direction: row-reverse; }
+  .story-img {
+    width: 380px; min-height: 320px; background: #ddd; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: #aaa;
+  }
+  .story-img.tall { min-height: 440px; }
+  .story-text { flex: 1; }
+  .story-text p { font-size: 16px; color: #555; line-height: 1.85; margin-bottom: 18px; }
+  .story-text p:last-child { margin-bottom: 0; }
+  .story-highlight {
+    font-size: 20px; color: #444; line-height: 1.55; font-style: italic;
+    margin: 24px 0; padding-left: 20px; border-left: 3px solid #ccc;
+  }
+  .story-label {
+    display: inline-block; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: #999; margin-bottom: 12px;
+    background: #f0f0f0; padding: 4px 12px; border-radius: 2px;
+  }
+
+  /* FULL-WIDTH QUOTE */
+  .full-quote {
+    padding: 80px 40px; text-align: center;
+    border-bottom: 1px solid #e8e8e8; background: #fafafa;
+  }
+  .full-quote blockquote {
+    font-size: 26px; font-style: italic; color: #444;
+    line-height: 1.5; max-width: 780px; margin: 0 auto;
+  }
+
+  /* GALLERY */
+  .photo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-top: 24px; }
+  .photo-thumb {
+    aspect-ratio: 3/2; background: #e0e0e0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: #bbb; cursor: pointer; transition: opacity 0.15s;
+  }
+  .photo-thumb:hover { opacity: 0.8; }
+
+  .footer { padding: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #aaa; }
+  .footer-socials { display: flex; gap: 12px; }
+  .footer-social { width: 36px; height: 36px; background: #e8e8e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: #aaa; text-decoration: none; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="page-label">Wireframe · Über Aaron</div>
+<div class="wireframe">
+  <nav class="nav">
+    <div class="nav-logo"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Konzerte</a>
+      <a class="nav-link" href="#">Musik</a>
+      <a class="nav-link active" href="#">Über Aaron</a>
+      <a class="nav-link" href="#">Shop</a>
+      <a class="nav-link" href="#">Kontakt</a>
+      <button class="nav-cta">Aaron buchen</button>
+    </div>
+  </nav>
+
+  <!-- BIO HERO: Portrait links + Intro rechts -->
+  <div class="bio-hero">
+    <div class="bio-portrait">Portrait-Foto (Hochformat)</div>
+    <div class="bio-content">
+      <h1>Aaron Wälchli</h1>
+      <p>Mitten ins Herz – und mitten ins Leben: So klingt die Musik von Aaron Wälchli. Der Schweizer Musiker, Sänger und Songwriter verbindet Tiefe mit Leichtigkeit, Präsenz mit Intimität. Seine Konzerte sind mehr als Auftritte – sie schaffen einen echten Raum der Nähe.</p>
+      <div class="bio-highlight">„Seine Konzerte sind mehr als Auftritte – sie schaffen einen echten Raum der Nähe."</div>
+      <p>Schon als Jugendlicher berührte ihn Musik tief, doch erst nach Jahren der Stille wagte Aaron 2020 einen radikalen Neuanfang. Innerhalb weniger Jahre wuchs aus einem inneren Impuls eine musikalische Reise, die ihn zu über 200 Konzerten, mehreren Alben und immer mehr eigenen Songs führte.</p>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="section" style="padding: 0; border-bottom: 1px solid #e8e8e8;">
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Konzerte</div></div>
+      <div class="stat"><div class="stat-num">25</div><div class="stat-label">Personen on Tour</div></div>
+      <div class="stat"><div class="stat-num">1'000+</div><div class="stat-label">Zuschauer Geschichten-Tour</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Sprachen</div></div>
+    </div>
+  </div>
+
+  <!-- STORY: Geschichten-Tour – Bild rechts -->
+  <div class="story-block reverse">
+    <div class="story-img tall">Konzertfoto (Geschichten-Tour, Bühne mit Band &amp; Chor)</div>
+    <div class="story-text">
+      <div class="story-label">Geschichten-Tour 2025</div>
+      <p>2025 ging Aaron mit der „Geschichten – Tour" auf seine bislang grösste Reise: sieben Konzerte in drei Ländern, begleitet von einer 25-köpfigen Crew, einer Liveband und einem eigens gegründeten Chor.</p>
+      <p>Es war ein musikalisches Abenteuer voller Gänsehautmomente, Nähe, Energie – und Liebe. Über 1'000 Menschen haben diese Abende erlebt. Viele von ihnen nahmen mehr mit nach Hause als nur Melodien: sie fühlten sich gesehen, berührt, getragen.</p>
+    </div>
+  </div>
+
+  <!-- FULL-WIDTH QUOTE -->
+  <div class="full-quote">
+    <blockquote>„Viele von ihnen nahmen mehr mit nach Hause als nur Melodien: sie fühlten sich gesehen, berührt, getragen."</blockquote>
+  </div>
+
+  <!-- STORY: Musik & Instrumente – Bild links -->
+  <div class="story-block">
+    <div class="story-img">Foto (Aaron mit Gitarre, Marimba oder Mundharmonika)</div>
+    <div class="story-text">
+      <div class="story-label">Musik</div>
+      <p>Aaron Wälchlis Musik ist mehrsprachig, genreoffen, handgemacht. Er singt in Schweizerdeutsch, Deutsch, Französisch und Englisch. Von eigenen Liedern wie Liecht, Undreamable Dream oder Tanzen im Regen, bis hin zu Neuinterpretationen von Songs wie Sound of Silence, Walking in Memphis oder Ring of Fire: Aaron versteht es, Lieder zum Leuchten zu bringen.</p>
+      <p>Mit seiner unverwechselbaren Stimme, seinem Spiel an Gitarre, Marimba und Mundharmonika – und einem Gespür für den Moment – erschafft er Konzerterlebnisse, die tragen.</p>
+    </div>
+  </div>
+
+  <!-- STORY: Album & Ausblick – Bild rechts -->
+  <div class="story-block reverse">
+    <div class="story-img">Foto (Album Cover "Wake Up" oder Studio-Aufnahme)</div>
+    <div class="story-text">
+      <div class="story-label">Wake Up · 2025</div>
+      <p>Sein neues Album "Wake Up" (2025) ist Zeugnis dieser Reise. Und gleichzeitig ein neuer Anfang.</p>
+      <div class="story-highlight">„Musik ist für Aaron kein Produkt, sondern ein lebendiger Austausch. Echt. Jetzt. Und immer mit offenem Herzen."</div>
+    </div>
+  </div>
+
+  <!-- GALLERIE -->
+  <section class="section">
+    <div class="section-label">Fotos</div>
+    <div class="section-title">Gallerie</div>
+    <div class="photo-grid">
+      <div class="photo-thumb">Foto 1</div>
+      <div class="photo-thumb">Foto 2</div>
+      <div class="photo-thumb">Foto 3</div>
+      <div class="photo-thumb">Foto 4</div>
+      <div class="photo-thumb">Foto 5</div>
+      <div class="photo-thumb">Foto 6</div>
+      <div class="photo-thumb">Foto 7</div>
+      <div class="photo-thumb">Foto 8</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© 2026 Aaron Wälchli</div>
+    <div class="footer-socials"><div class="footer-social">IG</div><div class="footer-social">YT</div><div class="footer-social">FB</div><div class="footer-social">BC</div></div>
+    <div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </footer>
+</div>
+</body>
+</html>

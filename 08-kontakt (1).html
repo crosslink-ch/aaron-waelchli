@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe – Kontakt</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #f5f5f5; color: #333; }
+  .page-label { position: fixed; top: 0; left: 0; right: 0; background: #222; color: #fff; text-align: center; padding: 8px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; z-index: 1000; }
+  .wireframe { max-width: 1200px; margin: 52px auto 0; background: #fff; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #e0e0e0; }
+  .nav-logo { width: 180px; height: 28px; background: #333; border-radius: 2px; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-link { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
+  .nav-link.active { color: #333; font-weight: 700; }
+  .nav-cta { background: #333; color: #fff; padding: 10px 24px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: none; }
+
+  .page-hero { padding: 80px 40px 60px; border-bottom: 1px solid #e8e8e8; }
+  .page-hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 12px; }
+  .page-hero p { font-size: 18px; color: #777; max-width: 640px; line-height: 1.6; }
+
+  .contact-section { padding: 60px 40px; border-bottom: 1px solid #e8e8e8; }
+  .section-label { display: inline-block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; background: #f0f0f0; padding: 4px 12px; border-radius: 2px; }
+  .section-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px;
+  }
+  .contact-card {
+    border: 1px solid #e0e0e0; padding: 32px 24px;
+  }
+  .contact-icon {
+    width: 56px; height: 56px; background: #f0f0f0; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 18px; color: #999;
+  }
+  .contact-card h3 { font-size: 18px; margin-bottom: 8px; }
+  .contact-card p { font-size: 14px; color: #888; line-height: 1.6; margin-bottom: 16px; }
+  .contact-email { font-size: 16px; color: #333; font-weight: 600; text-decoration: none; }
+  .contact-link {
+    display: inline-block; background: #333; color: #fff;
+    padding: 12px 28px; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1px; text-decoration: none; margin-top: 8px;
+  }
+
+  .social-section { padding: 60px 40px; border-bottom: 1px solid #e8e8e8; text-align: center; }
+  .social-section h2 { font-size: 24px; margin-bottom: 24px; }
+  .social-grid { display: flex; gap: 20px; justify-content: center; }
+  .social-card {
+    width: 140px; padding: 24px; border: 1px solid #e8e8e8;
+    text-align: center; cursor: pointer;
+  }
+  .social-card-icon {
+    width: 48px; height: 48px; background: #f0f0f0; border-radius: 50%;
+    margin: 0 auto 12px; display: flex; align-items: center;
+    justify-content: center; font-size: 14px; color: #888;
+  }
+  .social-card h4 { font-size: 14px; margin-bottom: 2px; }
+  .social-card p { font-size: 12px; color: #999; }
+
+  .footer { padding: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #aaa; }
+  .footer-socials { display: flex; gap: 12px; }
+  .footer-social { width: 36px; height: 36px; background: #e8e8e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: #aaa; text-decoration: none; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="page-label">Wireframe · Kontakt</div>
+<div class="wireframe">
+  <nav class="nav">
+    <div class="nav-logo"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Konzerte</a>
+      <a class="nav-link" href="#">Musik</a>
+      <a class="nav-link" href="#">Über Aaron</a>
+      <a class="nav-link" href="#">Shop</a>
+      <a class="nav-link active" href="#">Kontakt</a>
+      <button class="nav-cta">Aaron buchen</button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>Kontakt</h1>
+    <p>Für Booking-Anfragen, Presseanfragen oder allgemeine Fragen.</p>
+  </div>
+
+  <section class="contact-section">
+    <div class="section-label">Kontaktmöglichkeiten</div>
+    <div class="section-title">So erreichst du uns</div>
+    <div class="contact-grid">
+
+    <div class="contact-card">
+      <div class="contact-icon">★</div>
+      <h3>Konzertanfrage / Booking</h3>
+      <p>Du möchtest Aaron & Band für einen Anlass buchen? Starte hier mit einer unverbindlichen Anfrage.</p>
+      <a class="contact-link" href="#">Zur Konzertanfrage →</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">✉</div>
+      <h3>Allgemeiner Kontakt</h3>
+      <p>Für allgemeine Anfragen, Feedback oder Nachrichten.</p>
+      <a class="contact-email" href="#"><span class="__cf_email__" data-cfemail="e78c888993868c93a786869588899086828b848f8b8ec984888a">[email&#160;protected]</span></a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">📰</div>
+      <h3>Presse & Medien</h3>
+      <p>Für Interviews, Pressefotos, Akkreditierungen und redaktionelle Anfragen.</p>
+      <a class="contact-email" href="#"><span class="__cf_email__" data-cfemail="18686a7d6b6b7d5879796a77766f797d747b707471367b7775">[email&#160;protected]</span></a>
+      <br><br>
+      <a style="font-size:13px;color:#888;text-decoration:underline;" href="#">Pressefotos & EPK herunterladen</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">🎯</div>
+      <h3>Management</h3>
+      <p>Für geschäftliche Anfragen, Kooperationen und Partnerschaften.</p>
+      <a class="contact-email" href="#"><span class="__cf_email__" data-cfemail="6e030f000f090b030b001a2e0f0f1c0100190f0b020d060207400d0103">[email&#160;protected]</span></a>
+    </div>
+
+  </div>
+  </section>
+
+  <!-- SOCIALS -->
+  <div class="social-section">
+    <h2>Folge Aaron</h2>
+    <div class="social-grid">
+      <div class="social-card">
+        <div class="social-card-icon">IG</div>
+        <h4>Instagram</h4>
+        <p>@aaronwaelchli_musician</p>
+      </div>
+      <div class="social-card">
+        <div class="social-card-icon">YT</div>
+        <h4>YouTube</h4>
+        <p>Aaron Wälchli</p>
+      </div>
+      <div class="social-card">
+        <div class="social-card-icon">FB</div>
+        <h4>Facebook</h4>
+        <p>Aaron Wälchli</p>
+      </div>
+      <div class="social-card">
+        <div class="social-card-icon">BC</div>
+        <h4>Bandcamp</h4>
+        <p>aaronwaelchli</p>
+      </div>
+      <div class="social-card">
+        <div class="social-card-icon">SP</div>
+        <h4>Spotify</h4>
+        <p>Aaron Wälchli</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>© 2026 Aaron Wälchli</div>
+    

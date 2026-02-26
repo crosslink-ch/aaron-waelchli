@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe – Homepage</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+  }
+
+  .page-label {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: #222; color: #fff; text-align: center;
+    padding: 8px; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; z-index: 1000;
+  }
+
+  .wireframe {
+    max-width: 1200px; margin: 52px auto 0; padding: 0;
+    background: #fff; min-height: 100vh;
+    border-left: 1px solid #ddd; border-right: 1px solid #ddd;
+  }
+
+  /* NAV */
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px; border-bottom: 1px solid #e0e0e0;
+  }
+  .nav-logo {
+    width: 180px; height: 28px; background: #333; border-radius: 2px;
+  }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-link {
+    font-size: 13px; color: #888; text-transform: uppercase;
+    letter-spacing: 1px; text-decoration: none;
+  }
+  .nav-cta {
+    background: #333; color: #fff; padding: 10px 24px;
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+    border: none; cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative; height: 600px;
+    background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 100%);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-placeholder {
+    position: absolute; inset: 0; display: flex; align-items: center;
+    justify-content: center; flex-direction: column; gap: 8px;
+  }
+  .hero-placeholder svg { opacity: 0.3; }
+  .hero-placeholder span { color: #777; font-size: 14px; letter-spacing: 1px; }
+  .hero-overlay {
+    position: relative; z-index: 2; text-align: center; padding: 40px;
+  }
+  .hero-title {
+    font-size: 60px; font-weight: 700; color: #fff;
+    letter-spacing: -1px; margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .hero-sub {
+    font-size: 18px; color: rgba(255,255,255,0.85);
+    margin-bottom: 36px; font-weight: 400;
+  }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; }
+  .btn-primary {
+    background: #fff; color: #333; padding: 16px 40px;
+    font-size: 15px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; border: none; cursor: pointer;
+  }
+  .btn-secondary {
+    background: transparent; color: #fff; padding: 16px 40px;
+    font-size: 15px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 2px; border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 60px 40px; border-bottom: 1px solid #e8e8e8;
+  }
+  .section-label {
+    display: inline-block; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: #999; margin-bottom: 8px;
+    background: #f0f0f0; padding: 4px 12px; border-radius: 2px;
+  }
+  .section-title {
+    font-size: 28px; font-weight: 700; margin-bottom: 12px; color: #222;
+  }
+  .section-desc {
+    font-size: 15px; color: #888; line-height: 1.6; max-width: 600px;
+  }
+
+  /* BOOKING TEASER */
+  .booking-teaser {
+    background: #f8f8f8; display: flex; align-items: center;
+    gap: 40px; padding: 60px 40px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .booking-teaser-img {
+    width: 400px; height: 280px; background: #d5d5d5;
+    flex-shrink: 0; display: flex; align-items: center;
+    justify-content: center;
+  }
+  .booking-teaser-img span { color: #aaa; font-size: 13px; }
+  .booking-teaser-content { flex: 1; }
+  .booking-teaser-content h2 {
+    font-size: 32px; font-weight: 700; margin-bottom: 12px;
+  }
+  .booking-teaser-content p {
+    font-size: 16px; color: #777; line-height: 1.7; margin-bottom: 24px;
+  }
+  .booking-badge {
+    display: inline-block; background: #e8e8e8; padding: 6px 14px;
+    font-size: 12px; color: #666; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  /* TOUR DATES */
+  .tour-list { margin-top: 24px; }
+  .tour-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 0; border-bottom: 1px solid #eee;
+  }
+  .tour-date {
+    font-size: 14px; font-weight: 700; color: #555;
+    min-width: 120px;
+  }
+  .tour-venue { font-size: 15px; color: #333; flex: 1; }
+  .tour-city { font-size: 14px; color: #999; min-width: 140px; text-align: right; }
+  .tour-btn {
+    background: #333; color: #fff; padding: 8px 20px;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+    border: none; margin-left: 24px; cursor: pointer;
+  }
+  .tour-more {
+    display: block; text-align: center; margin-top: 24px;
+    font-size: 14px; color: #888; text-decoration: underline;
+    cursor: pointer;
+  }
+
+  /* PRODUCT GRID */
+  .product-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; margin-top: 24px;
+  }
+  .product-card { text-align: center; }
+  .product-img {
+    aspect-ratio: 1; background: #e8e8e8; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: #bbb; position: relative;
+  }
+  .product-badge-new {
+    position: absolute; top: 10px; left: 10px;
+    background: #333; color: #fff; padding: 3px 10px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .product-card h4 { font-size: 15px; margin-bottom: 2px; }
+  .product-type { font-size: 12px; color: #aaa; margin-bottom: 6px; }
+  .product-price { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .product-cart-btn {
+    display: block; width: 100%; padding: 10px;
+    background: #333; color: #fff; border: none;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+    cursor: pointer; font-family: inherit;
+  }
+  .shop-more {
+    display: block; text-align: center; margin-top: 24px;
+    font-size: 14px; color: #888; text-decoration: underline;
+    cursor: pointer;
+  }
+
+  /* VIDEO SECTION */
+  .video-main {
+    width: 100%; height: 420px; background: #d0d0d0;
+    margin-top: 24px; display: flex; align-items: center;
+    justify-content: center; flex-direction: column; gap: 12px;
+    cursor: pointer; position: relative;
+  }
+  .video-main-label {
+    position: absolute; bottom: 16px; left: 16px;
+    background: rgba(0,0,0,0.6); color: #fff;
+    padding: 6px 14px; font-size: 13px;
+  }
+  .play-btn {
+    width: 72px; height: 72px; border: 3px solid #999;
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center;
+  }
+  .play-btn svg { margin-left: 4px; }
+  .video-main > span { font-size: 13px; color: #888; }
+  .video-thumbs {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 16px;
+  }
+  .video-thumb {
+    height: 140px; background: #ddd; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 6px; position: relative;
+    border: 2px solid transparent; transition: border-color 0.15s;
+  }
+  .video-thumb:hover { border-color: #999; }
+  .video-thumb .mini-play {
+    width: 36px; height: 36px; border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; background: rgba(0,0,0,0.2);
+  }
+  .video-thumb-label {
+    position: absolute; bottom: 8px; left: 8px;
+    font-size: 11px; color: #777; background: rgba(255,255,255,0.85);
+    padding: 3px 8px;
+  }
+  .video-all {
+    display: block; text-align: center; margin-top: 20px;
+    font-size: 14px; color: #888; text-decoration: underline;
+    cursor: pointer;
+  }
+
+  /* ABOUT TEASER */
+  .about-teaser {
+    display: flex; gap: 40px; align-items: center;
+    margin-top: 24px;
+  }
+  .about-img {
+    width: 300px; height: 380px; background: #ddd;
+    flex-shrink: 0; display: flex; align-items: center;
+    justify-content: center;
+  }
+  .about-img span { color: #aaa; font-size: 13px; }
+  .about-text { flex: 1; }
+  .about-text blockquote {
+    font-size: 20px; color: #555; font-style: italic;
+    line-height: 1.6; margin-bottom: 16px;
+    border-left: 3px solid #ccc; padding-left: 20px;
+  }
+  .about-text p { font-size: 15px; color: #888; line-height: 1.7; margin-bottom: 20px; }
+  .link-arrow {
+    font-size: 14px; color: #555; text-decoration: underline; cursor: pointer;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: #f0f0f0; padding: 60px 40px; text-align: center;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .newsletter h2 { font-size: 24px; margin-bottom: 8px; }
+  .newsletter p { font-size: 15px; color: #888; margin-bottom: 24px; }
+  .newsletter-form { display: flex; gap: 12px; justify-content: center; max-width: 480px; margin: 0 auto; }
+  .newsletter-input {
+    flex: 1; padding: 14px 20px; border: 1px solid #ccc;
+    font-size: 14px; background: #fff;
+  }
+  .newsletter-btn {
+    background: #333; color: #fff; padding: 14px 28px;
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+    border: none; cursor: pointer;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 40px; display: flex; justify-content: space-between;
+    align-items: center; font-size: 13px; color: #aaa;
+  }
+  .footer-socials { display: flex; gap: 12px; }
+  .footer-social {
+    width: 36px; height: 36px; background: #e8e8e8; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #999;
+  }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: #aaa; text-decoration: none; font-size: 12px; }
+
+  /* ANNOTATION */
+  .annotation {
+    position: absolute; background: #fffde7; padding: 6px 12px;
+    font-size: 11px; color: #8b7000; border: 1px solid #e8d44d;
+    border-radius: 3px; white-space: nowrap; z-index: 10;
+  }
+  .section-relative { position: relative; }
+
+  .note {
+    background: #fffde7; border-left: 3px solid #e8d44d;
+    padding: 12px 16px; margin-top: 16px; font-size: 12px;
+    color: #8b7000;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-label">Wireframe · Homepage</div>
+
+<div class="wireframe">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo" title="Aaron Wälchli Logo"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Konzerte</a>
+      <a class="nav-link" href="#">Musik</a>
+      <a class="nav-link" href="#">Über Aaron</a>
+      <a class="nav-link" href="#">Shop</a>
+      <a class="nav-link" href="#">Kontakt</a>
+      <button class="nav-cta">Aaron buchen</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-placeholder">
+      <svg width="48" height="48" fill="none" stroke="#999" stroke-width="1.5"><rect x="4" y="4" width="40" height="40" rx="2"/><circle cx="16" cy="18" r="5"/><path d="M4 34l12-10 8 6 10-8 10 12"/></svg>
+      <span>Hero-Bild / Video (Konzert oder Portrait)</span>
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-title">Aaron Wälchli</div>
+      <div class="hero-sub">Emotionale Musik · Live-Erlebnisse</div>
+      <div class="hero-ctas">
+        <button class="btn-primary">Aaron buchen</button>
+        <button class="btn-secondary">Tickets</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING TEASER -->
+  <div class="booking-teaser section-relative">
+    <div class="booking-teaser-img"><span>Konzertfoto (Live, Band)</span></div>
+    <div class="booking-teaser-content">
+      <div class="booking-badge">★ Primary CTA</div>
+      <h2>Aaron & Band live buchen</h2>
+      <p>Du planst ein Event, ein Festival oder einen privaten Anlass? Aaron Wälchli und seine Band (bis zu 25 Personen) schaffen unvergessliche Konzerterlebnisse voller Nähe und Emotion.</p>
+      <button class="btn-primary" style="background:#333;color:#fff;">Unverbindliche Anfrage →</button>
+      <div class="note">Konzertanfrage = wichtigster CTA. Direkt auf Startseite, above the fold nach Hero.</div>
+    </div>
+  </div>
+
+  <!-- NÄCHSTE KONZERTE -->
+  <section class="section">
+    <div class="section-label">Live</div>
+    <div class="section-title">Nächste Konzerte</div>
+    <div class="tour-list">
+      <div class="tour-item">
+        <div class="tour-date">15. März 2026</div>
+        <div class="tour-venue">Kulturzentrum Gaswerk</div>
+        <div class="tour-city">Winterthur, CH</div>
+        <button class="tour-btn">Tickets</button>
+      </div>
+      <div class="tour-item">
+        <div class="tour-date">22. März 2026</div>
+        <div class="tour-venue">Mühle Hunziken</div>
+        <div class="tour-city">Rubigen, CH</div>
+        <button class="tour-btn">Tickets</button>
+      </div>
+      <div class="tour-item">
+        <div class="tour-date">05. April 2026</div>
+        <div class="tour-venue">Volkshaus</div>
+        <div class="tour-city">Basel, CH</div>
+        <button class="tour-btn">Tickets</button>
+      </div>
+    </div>
+    <span class="tour-more">Alle Konzertdaten anzeigen →</span>
+  </section>
+
+  <!-- SHOP / PRODUKTE -->
+  <section class="section">
+    <div class="section-label">Shop</div>
+    <div class="section-title">Alben & Merch</div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><div class="product-badge-new">Neu</div>Album Cover</div>
+        <h4>Wake Up – CD</h4>
+        <div class="product-type">Physisches Album</div>
+        <div class="product-price">CHF 15.–</div>
+        <button class="product-cart-btn">In den Warenkorb</button>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><div class="product-badge-new">Neu</div>Album Cover</div>
+        <h4>Wake Up – Download</h4>
+        <div class="product-type">Digitaler Download (.wav)</div>
+        <div class="product-price">CHF 10.–</div>
+        <button class="product-cart-btn">In den Warenkorb</button>
+      </div>
+      <div class="product-card">
+        <div class="product-img">Album Cover</div>
+        <h4>this is your song – CD</h4>
+        <div class="product-type">Physisches Album</div>
+        <div class="product-price">CHF 15.–</div>
+        <button class="product-cart-btn">In den Warenkorb</button>
+      </div>
+      <div class="product-card">
+        <div class="product-img">Album Cover</div>
+        <h4>PUR – Session 2</h4>
+        <div class="product-type">CD + Download</div>
+        <div class="product-price">CHF 15.–</div>
+        <button class="product-cart-btn">In den Warenkorb</button>
+      </div>
+    </div>
+    <span class="shop-more">Alle Produkte anzeigen →</span>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section">
+    <div class="section-label">Video</div>
+    <div class="section-title">Videos</div>
+    <div class="section-desc">Musikvideos & Live-Mitschnitte</div>
+
+    <!-- Main Video -->
+    <div class="video-main" id="mainVideo">
+      <div class="play-btn">
+        <svg width="28" height="28" fill="#999" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <span>YouTube / Vimeo Embed</span>
+      <div class="video-main-label" id="mainVideoLabel">Stay On 2025 – "Wake Up" Album Version</div>
+    </div>
+
+    <!-- 3 Thumbnail Videos -->
+    <div class="video-thumbs">
+      <div class="video-thumb" onclick="selectVideo(this, 'Your Song – Offizielles Musikvideo')">
+        <div class="mini-play">
+          <svg width="14" height="14" fill="#fff" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="video-thumb-label">Your Song</div>
+      </div>
+      <div class="video-thumb" onclick="selectVideo(this, 'Live Session – Akustik-Version')">
+        <div class="mini-play">
+          <svg width="14" height="14" fill="#fff" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="video-thumb-label">Live Session</div>
+      </div>
+      <div class="video-thumb" onclick="selectVideo(this, 'Konzert-Highlight – Live Mitschnitt')">
+        <div class="mini-play">
+          <svg width="14" height="14" fill="#fff" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="video-thumb-label">Konzert-Highlight</div>
+      </div>
+    </div>
+
+    <span class="video-all">Zeige alle Videos →</span>
+
+    <div class="note">Klick auf kleines Video → wird oben gross angezeigt. "Zeige alle Videos" → verlinkt auf /musik#videos</div>
+  </section>
+
+  <script>
+    function selectVideo(thumb, label) {
+      // Update main video label
+      document.getElementById('mainVideoLabel').textContent = label;
+      // Visual feedback: highlight selected thumb
+      document.querySelectorAll('.video-thumb').forEach(t => t.style.borderColor = 'transparent');
+      thumb.style.borderColor = '#555';
+      // Scroll main video into view
+      document.getElementById('mainVideo').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
+  <!-- ÜBER AARON TEASER -->
+  <section class="section">
+    <div class="section-label">Über</div>
+    <div class="section-title">Über Aaron Wälchli</div>
+    <div class="about-teaser">
+      <div class="about-img"><span>Portrait-Foto</span></div>
+      <div class="about-text">
+        <blockquote>„Er hat von Anfang an eine magische Atmosphäre geschaffen, dank seines Charismas und seiner warmherzigen Art."</blockquote>
+        <p>Schweizer Musiker, Songwriter und Komponist. Seine Songs sind mehrsprachig, genreoffen und handgemacht. Unterwegs mit bis zu 25 Personen.</p>
+        <span class="link-arrow">Mehr über Aaron →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <h2>Keine Konzerte verpassen</h2>
+    <p>Melde dich an und erfahre als Erste/r von neuen Tourdaten und Releases.</p>
+    <div class="newsletter-form">
+      <input class="newsletter-input" placeholder="Deine E-Mail Adresse" />
+      <button class="newsletter-btn">Anmelden</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>© 2026 Aaron Wälchli</div>
+    <div class="footer-socials">
+      <div class="footer-social">IG</div>
+      <div class="footer-social">YT</div>
+      <div class="footer-social">FB</div>
+      <div class="footer-social">BC</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

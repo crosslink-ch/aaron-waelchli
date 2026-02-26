@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe – Buchen / Konzertanfrage</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #f5f5f5; color: #333; }
+  .page-label { position: fixed; top: 0; left: 0; right: 0; background: #222; color: #fff; text-align: center; padding: 8px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; z-index: 1000; }
+  .wireframe { max-width: 1200px; margin: 52px auto 0; background: #fff; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid #e0e0e0; }
+  .nav-logo { width: 180px; height: 28px; background: #333; border-radius: 2px; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-link { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
+  .nav-link.active { color: #333; font-weight: 700; }
+  .nav-cta { background: #333; color: #fff; padding: 10px 24px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: none; }
+
+  .page-hero { padding: 80px 40px 60px; border-bottom: 1px solid #e8e8e8; }
+  .page-hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 12px; }
+  .page-hero p { font-size: 18px; color: #777; max-width: 640px; line-height: 1.6; }
+
+  .section { padding: 60px 40px; border-bottom: 1px solid #e8e8e8; }
+  .section-label { display: inline-block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; background: #f0f0f0; padding: 4px 12px; border-radius: 2px; }
+  .section-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+
+  /* OFFERING */
+  .offerings { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px; }
+  .offering-card { border: 1px solid #e0e0e0; padding: 32px 24px; }
+  .offering-icon { width: 56px; height: 56px; background: #f0f0f0; border-radius: 50%; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
+  .offering-icon svg { opacity: 0.4; }
+  .offering-card h3 { font-size: 18px; margin-bottom: 8px; }
+  .offering-card p { font-size: 14px; color: #888; line-height: 1.6; }
+  .offering-detail { font-size: 13px; color: #aaa; margin-top: 12px; }
+
+  /* FORM */
+  .form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 32px; }
+  .form-group { margin-bottom: 24px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #555; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 14px; font-family: inherit; background: #fafafa;
+  }
+  .form-group textarea { height: 120px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-submit { background: #333; color: #fff; padding: 16px 40px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; width: 100%; margin-top: 8px; }
+  .form-note { font-size: 12px; color: #aaa; margin-top: 12px; }
+
+  .form-sidebar { padding: 32px; background: #f8f8f8; height: fit-content; }
+  .form-sidebar h3 { font-size: 18px; margin-bottom: 16px; }
+  .form-sidebar p { font-size: 14px; color: #777; line-height: 1.7; margin-bottom: 16px; }
+  .sidebar-contact { border-top: 1px solid #e0e0e0; padding-top: 16px; margin-top: 16px; }
+  .sidebar-contact p { font-size: 13px; color: #999; margin-bottom: 4px; }
+  .sidebar-contact strong { color: #555; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 60px 40px; border-bottom: 1px solid #e8e8e8; background: #fafafa; }
+  .testimonial-grid { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
+  .testimonial {
+    padding: 40px 0; border-bottom: 1px solid #e8e8e8; text-align: center;
+    max-width: 720px; margin: 0 auto;
+  }
+  .testimonial:last-child { border-bottom: none; }
+  .testimonial blockquote {
+    font-size: 20px; font-style: italic; color: #444;
+    line-height: 1.6; margin-bottom: 12px;
+  }
+  .testimonial cite {
+    font-size: 14px; color: #999; font-style: normal;
+  }
+
+  .footer { padding: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #aaa; }
+  .footer-socials { display: flex; gap: 12px; }
+  .footer-social { width: 36px; height: 36px; background: #e8e8e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: #aaa; text-decoration: none; font-size: 12px; }
+
+  .note { background: #fffde7; border-left: 3px solid #e8d44d; padding: 12px 16px; margin-top: 16px; font-size: 12px; color: #8b7000; }
+</style>
+</head>
+<body>
+
+<div class="page-label">Wireframe · Buchen / Konzertanfrage</div>
+
+<div class="wireframe">
+
+  <nav class="nav">
+    <div class="nav-logo"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Konzerte</a>
+      <a class="nav-link" href="#">Musik</a>
+      <a class="nav-link" href="#">Über Aaron</a>
+      <a class="nav-link" href="#">Shop</a>
+      <a class="nav-link" href="#">Kontakt</a>
+      <button class="nav-cta">Aaron buchen</button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Aaron & Band buchen</h1>
+    <p>Ob Festival, Firmenanlass, Privatfeier oder Konzertreihe – Aaron Wälchli und seine Band schaffen unvergessliche Erlebnisse voller Nähe, Tiefe und Leichtigkeit.</p>
+  </div>
+
+  <!-- OFFERINGS -->
+  <section class="section">
+    <div class="section-label">Was wir bieten</div>
+    <div class="section-title">Live-Erlebnisse für jeden Anlass</div>
+    <div class="offerings">
+      <div class="offering-card">
+        <div class="offering-icon">
+          <svg width="24" height="24" fill="none" stroke="#999" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Solo / Duo</h3>
+        <p>Intimes Setting mit Gitarre und Stimme. Ideal für kleinere Räume, Apéros oder Privatanlässe.</p>
+        <div class="offering-detail">1–2 Personen</div>
+      </div>
+      <div class="offering-card">
+        <div class="offering-icon">
+          <svg width="24" height="24" fill="none" stroke="#999" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        </div>
+        <h3>Band Setup</h3>
+        <p>Volle Band-Besetzung für Clubs, Konzertsäle und mittelgrosse Events.</p>
+        <div class="offering-detail">4–8 Personen</div>
+      </div>
+      <div class="offering-card">
+        <div class="offering-icon">
+          <svg width="24" height="24" fill="none" stroke="#999" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h3>Grosse Show</h3>
+        <p>Komplettproduktion mit erweiterter Band für Festivals und grosse Bühnen.</p>
+        <div class="offering-detail">Bis zu 25 Personen</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="section">
+    <div class="section-label">Anfrage</div>
+    <div class="section-title">Unverbindliche Konzertanfrage</div>
+    <div class="form-layout">
+      <div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vorname *</label>
+            <input type="text" placeholder="Max" />
+          </div>
+          <div class="form-group">
+            <label>Nachname *</label>
+            <input type="text" placeholder="Muster" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>E-Mail *</label>
+            <input type="email" placeholder="max@beispiel.ch" />
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" placeholder="+41 79 ..." />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Art des Events *</label>
+          <select>
+            <option>Bitte wählen...</option>
+            <option>Konzert / Konzertreihe</option>
+            <option>Festival</option>
+            <option>Firmenanlass / Corporate Event</option>
+            <option>Privatanlass (Hochzeit, Geburtstag...)</option>
+            <option>Kirchenanlass</option>
+            <option>Anderes</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Gewünschtes Datum *</label>
+            <input type="text" placeholder="TT.MM.JJJJ" />
+          </div>
+          <div class="form-group">
+            <label>Ort / Venue *</label>
+            <input type="text" placeholder="Venue, Stadt" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Erwartete Besucherzahl</label>
+            <select>
+              <option>Bitte wählen...</option>
+              <option>bis 100</option>
+              <option>100 – 500</option>
+              <option>500 – 1'000</option>
+              <option>1'000 – 5'000</option>
+              <option>5'000+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Gewünschtes Setup</label>
+            <select>
+              <option>Bitte wählen...</option>
+              <option>Solo / Duo</option>
+              <option>Band Setup (4–8 Pers.)</option>
+              <option>Grosse Show (bis 25 Pers.)</option>
+              <option>Noch unklar</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nachricht / Details</label>
+          <textarea placeholder="Erzähl uns mehr über deinen Anlass..."></textarea>
+        </div>
+        <button class="form-submit">Anfrage senden →</button>
+        <div class="form-note">Unverbindlich. Wir melden uns innerhalb von 48 Stunden.</div>
+      </div>
+
+      <div class="form-sidebar">
+        <h3>Direktkontakt</h3>
+        <p>Für kurzfristige Anfragen oder Rückfragen erreichst du das Management auch direkt:</p>
+        <div class="sidebar-contact">
+          <p><strong>E-Mail</strong></p>
+          <p>kontakt@aaronwaelchli.com</p>
+        </div>
+        <div class="sidebar-contact">
+          <p><strong>Management</strong></p>
+          <p>████████████</p>
+        </div>
+        <div class="note" style="margin-top: 24px;">
+          Sidebar mit Direktkontakt für Veranstalter die lieber direkt anrufen/mailen.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials">
+    <div class="section-label">Referenzen</div>
+    <div class="section-title">Was Veranstalter sagen</div>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <blockquote>„Er hat von Anfang an eine magische Atmosphäre geschaffen, dank seines Charismas, seiner warmherzigen Art und seiner aussergewöhnlichen Interpretationen."</blockquote>
+        <cite>— Vosges Matin</cite>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>© 2026 Aaron Wälchli</div>
+    <div class="footer-socials">
+      <div class="footer-social">IG</div>
+      <div class="footer-social">YT</div>
+      <div class="footer-social">FB</div>
+      <div class="footer-social">BC</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
