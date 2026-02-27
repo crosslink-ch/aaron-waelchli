@@ -47,6 +47,11 @@
     font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
     border: none; cursor: pointer; text-decoration: none; display: inline-block;
   }
+  .lang-switcher { display: flex; align-items: center; gap: 8px; margin-left: 8px; padding-left: 20px; border-left: 1px solid #e0e0e0; }
+  .lang-switcher a { font-size: 12px; color: #bbb; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .lang-switcher a:hover { color: #555; }
+  .lang-switcher a.active { color: #333; font-weight: 700; }
+  .lang-divider { font-size: 12px; color: #ddd; font-weight: 300; }
 
   /* HERO */
   .hero {
@@ -389,6 +394,13 @@
       <a class="nav-link" href="06-shop.html">Shop</a>
       <a class="nav-link" href="08-kontakt.html">Kontakt</a>
       <a class="nav-cta" href="02-aaron-buchen.html">Aaron buchen</a>
+      <div class="lang-switcher">
+        <a href="#" class="active">DE</a>
+        <span class="lang-divider">|</span>
+        <a href="#">EN</a>
+        <span class="lang-divider">|</span>
+        <a href="#">FR</a>
+      </div>
     </div>
   </nav>
 
@@ -416,7 +428,6 @@
       <h2>Aaron & Band live buchen</h2>
       <p>Du planst ein Event, ein Festival oder einen privaten Anlass? Aaron Wälchli und seine Band (bis zu 25 Personen) schaffen unvergessliche Konzerterlebnisse voller Nähe und Emotion.</p>
       <a class="btn-primary" href="02-aaron-buchen.html" style="background:#333;color:#fff;text-decoration:none;">Unverbindliche Anfrage →</a>
-      <div class="note">Konzertanfrage = wichtigster CTA. Direkt auf Startseite, above the fold nach Hero.</div>
     </div>
   </div>
 
@@ -523,7 +534,6 @@
 
     <a class="video-all" href="04-musik.html#videos">Zeige alle Videos →</a>
 
-    <div class="note">Klick auf kleines Video → wird oben gross angezeigt. "Zeige alle Videos" → verlinkt auf /musik#videos</div>
   </section>
 
   <script>
@@ -567,7 +577,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-brand-name">Aaron Wälchli</div>
-        <p>Schweizer Mundart-Musiker, Sänger und Songwriter.</p>
+        <p>Schweizer Musiker, Sänger und Songwriter.</p>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Seiten</div>

@@ -16,6 +16,11 @@
   .nav-link { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
   .nav-link.active { color: #333; font-weight: 700; }
   .nav-cta { background: #333; color: #fff; padding: 10px 24px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: none; text-decoration: none; display: inline-block; }
+  .lang-switcher { display: flex; align-items: center; gap: 8px; margin-left: 8px; padding-left: 20px; border-left: 1px solid #e0e0e0; }
+  .lang-switcher a { font-size: 12px; color: #bbb; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .lang-switcher a:hover { color: #555; }
+  .lang-switcher a.active { color: #333; font-weight: 700; }
+  .lang-divider { font-size: 12px; color: #ddd; font-weight: 300; }
 
   .page-hero { padding: 80px 40px 40px; border-bottom: 1px solid #e8e8e8; }
   .page-hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 12px; }
@@ -72,6 +77,13 @@
       <a class="nav-link active" href="06-shop.html">Shop</a>
       <a class="nav-link" href="08-kontakt.html">Kontakt</a>
       <a class="nav-cta" href="02-aaron-buchen.html">Aaron buchen</a>
+      <div class="lang-switcher">
+        <a href="#" class="active">DE</a>
+        <span class="lang-divider">|</span>
+        <a href="#">EN</a>
+        <span class="lang-divider">|</span>
+        <a href="#">FR</a>
+      </div>
     </div>
   </nav>
 
@@ -148,7 +160,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-brand-name">Aaron Wälchli</div>
-        <p>Schweizer Mundart-Musiker, Sänger und Songwriter.</p>
+        <p>Schweizer Musiker, Sänger und Songwriter.</p>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Seiten</div>
