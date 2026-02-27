@@ -70,11 +70,21 @@
     font-size: 14px; color: #999; font-style: normal;
   }
 
-  .footer { padding: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #aaa; }
-  .footer-socials { display: flex; gap: 12px; }
-  .footer-social { width: 36px; height: 36px; background: #e8e8e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999; }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { color: #aaa; text-decoration: none; font-size: 12px; }
+  .footer { background: #1a1a1a; color: #999; padding: 60px 40px 0; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; }
+  .footer-brand-name { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 0.5px; margin-bottom: 16px; }
+  .footer-brand p { font-size: 13px; color: #666; line-height: 1.6; }
+  .footer-col-title { font-size: 11px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { color: #888; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col ul a:hover { color: #fff; }
+  .footer-socials { display: flex; gap: 10px; margin-top: 4px; }
+  .footer-social { width: 36px; height: 36px; border: 1px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+  .footer-social:hover { border-color: #fff; color: #fff; }
+  .footer-bottom { border-top: 1px solid #2a2a2a; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #555; }
+  .footer-legal { display: flex; gap: 24px; }
+  .footer-legal a { color: #555; text-decoration: none; font-size: 12px; transition: color 0.2s; }
+  .footer-legal a:hover { color: #999; }
 
   .note { background: #fffde7; border-left: 3px solid #e8d44d; padding: 12px 16px; margin-top: 16px; font-size: 12px; color: #8b7000; }
 </style>
@@ -89,7 +99,6 @@
     <a href="01-homepage.html" class="nav-logo"></a>
     <div class="nav-links">
       <a class="nav-link" href="03-konzerte.html">Konzerte</a>
-      <a class="nav-link" href="04-musik.html">Musik</a>
       <a class="nav-link" href="05-ueber-aaron.html">Über Aaron</a>
       <a class="nav-link" href="06-shop.html">Shop</a>
       <a class="nav-link" href="08-kontakt.html">Kontakt</a>
@@ -245,16 +254,43 @@
   </div>
 
   <footer class="footer">
-    <div>© 2026 Aaron Wälchli</div>
-    <div class="footer-socials">
-      <div class="footer-social">IG</div>
-      <div class="footer-social">YT</div>
-      <div class="footer-social">FB</div>
-      <div class="footer-social">BC</div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Aaron Wälchli</div>
+        <p>Schweizer Mundart-Musiker, Sänger und Songwriter.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Seiten</div>
+        <ul>
+          <li><a href="01-homepage.html">Home</a></li>
+          <li><a href="03-konzerte.html">Konzerte</a></li>
+          <li><a href="05-ueber-aaron.html">Über Aaron</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Mehr</div>
+        <ul>
+          <li><a href="06-shop.html">Shop</a></li>
+          <li><a href="08-kontakt.html">Kontakt</a></li>
+          <li><a href="02-aaron-buchen.html">Aaron buchen</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Social</div>
+        <div class="footer-socials">
+          <a class="footer-social" href="#" title="Instagram">IG</a>
+          <a class="footer-social" href="#" title="YouTube">YT</a>
+          <a class="footer-social" href="#" title="Facebook">FB</a>
+          <a class="footer-social" href="#" title="Bandcamp">BC</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
+    <div class="footer-bottom">
+      <div>© 2026 Aaron Wälchli</div>
+      <div class="footer-legal">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </div>
     </div>
   </footer>
 
