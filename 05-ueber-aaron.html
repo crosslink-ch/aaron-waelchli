@@ -103,7 +103,16 @@
   .photo-thumb:hover { opacity: 0.8; }
 
   .footer { background: #1a1a1a; color: #999; padding: 60px 40px 0; }
-  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 48px; }
+  .footer-newsletter p { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 16px; }
+  .footer-newsletter-form { display: flex; gap: 0; }
+  .footer-newsletter-input { flex: 1; padding: 10px 14px; border: 1px solid #333; border-right: none; font-size: 13px; font-family: inherit; background: transparent; color: #fff; }
+  .footer-newsletter-input::placeholder { color: #666; }
+  .footer-newsletter-btn { padding: 10px 20px; background: #333; color: #fff; border: 1px solid #555; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+  .footer-newsletter-btn:hover { background: #444; }
+  .footer-newsletter-check { display: flex; align-items: baseline; gap: 8px; margin-top: 12px; font-size: 12px; color: #666; }
+  .footer-newsletter-check a { color: #888; text-decoration: underline; transition: color 0.2s; }
+  .footer-newsletter-check a:hover { color: #fff; }
   .footer-brand-name { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 0.5px; margin-bottom: 16px; }
   .footer-brand p { font-size: 13px; color: #666; line-height: 1.6; }
   .footer-col-title { font-size: 11px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
@@ -270,6 +279,18 @@
           <a class="footer-social" href="#" title="Facebook">FB</a>
           <a class="footer-social" href="#" title="Bandcamp">BC</a>
         </div>
+      </div>
+      <div class="footer-newsletter">
+        <div class="footer-col-title">Newsletter</div>
+        <p>Keine Konzerte verpassen – melde dich an.</p>
+        <div class="footer-newsletter-form">
+          <input class="footer-newsletter-input" placeholder="Deine E-Mail" />
+          <button class="footer-newsletter-btn">Senden</button>
+        </div>
+        <label class="footer-newsletter-check">
+          <input type="checkbox" />
+          Ich akzeptiere die <a href="#">Datenschutzerklärung</a>
+        </label>
       </div>
     </div>
     <div class="footer-bottom">
