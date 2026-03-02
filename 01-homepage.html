@@ -91,6 +91,50 @@
     cursor: pointer;
   }
 
+  /* NEWSLETTER CTA */
+  .newsletter-cta {
+    background: #222;
+    padding: 56px 40px;
+    text-align: center;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .newsletter-cta-label {
+    display: inline-block; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: #888; margin-bottom: 12px;
+    background: rgba(255,255,255,0.08); padding: 4px 12px; border-radius: 2px;
+  }
+  .newsletter-cta-title {
+    font-size: 28px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; letter-spacing: -0.3px;
+  }
+  .newsletter-cta-desc {
+    font-size: 15px; color: #999; margin-bottom: 32px;
+    max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6;
+  }
+  .newsletter-cta-form {
+    display: flex; gap: 0; max-width: 480px;
+    margin: 0 auto 16px;
+  }
+  .newsletter-cta-input {
+    flex: 1; padding: 14px 18px; border: 1px solid #444; border-right: none;
+    font-size: 14px; font-family: inherit; background: transparent; color: #fff;
+  }
+  .newsletter-cta-input::placeholder { color: #666; }
+  .newsletter-cta-input:focus { outline: none; border-color: #888; }
+  .newsletter-cta-btn {
+    padding: 14px 32px; background: #fff; color: #222;
+    border: none; font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    cursor: pointer; font-family: inherit; transition: background 0.2s;
+  }
+  .newsletter-cta-btn:hover { background: #e0e0e0; }
+  .newsletter-cta-check {
+    display: flex; align-items: baseline; gap: 8px;
+    justify-content: center; font-size: 12px; color: #666;
+  }
+  .newsletter-cta-check a { color: #888; text-decoration: underline; transition: color 0.2s; }
+  .newsletter-cta-check a:hover { color: #fff; }
+
   /* SECTIONS */
   .section {
     padding: 60px 40px; border-bottom: 1px solid #e8e8e8;
@@ -409,6 +453,21 @@
         <a class="btn-secondary" href="03-konzerte.html" style="text-decoration:none;">Tickets</a>
       </div>
     </div>
+  </section>
+
+  <!-- NEWSLETTER CTA -->
+  <section class="newsletter-cta">
+    <div class="newsletter-cta-label">Newsletter</div>
+    <div class="newsletter-cta-title">Keine Konzerte verpassen</div>
+    <div class="newsletter-cta-desc">Melde dich an und erhalte Neuigkeiten zu Konzerten, neuer Musik und exklusiven Angeboten direkt in dein Postfach.</div>
+    <div class="newsletter-cta-form">
+      <input class="newsletter-cta-input" type="email" placeholder="Deine E-Mail-Adresse" />
+      <button class="newsletter-cta-btn">Anmelden</button>
+    </div>
+    <label class="newsletter-cta-check">
+      <input type="checkbox" />
+      Ich akzeptiere die <a href="#">Datenschutzerklärung</a>
+    </label>
   </section>
 
   <!-- BOOKING TEASER -->
